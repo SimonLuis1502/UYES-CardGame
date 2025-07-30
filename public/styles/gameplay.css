@@ -452,7 +452,7 @@ body#gameplay {
     display: none;
 
     &.helpOpen{
-        display:flex;
+        display: flex;
         flex-direction: column;
         position: absolute;
         background: rgba(255, 255, 255, 0.2);
@@ -746,9 +746,11 @@ body#gameplay {
     #helpButtonClicked{
 
         &.helpOpen{
-            *{
-                width: 35%;
-                flex-grow: 0;
+            #closeHelpBtn{
+                & ~ *{
+                    width: 35%;
+                    flex-grow: 0;
+                }
             }
             /*#closeHelpBtn{*/
             /*    position: absolute;*/

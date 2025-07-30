@@ -196,7 +196,7 @@
         font-size: 120%;
     }
     #startGameplay {
-        transform: translateY(15%);
+        transform: translateY(100%);
         width: 50%;
         font-size: 120%;
     }
@@ -205,7 +205,7 @@
         width: 35%;
         margin-right: 5%;
     }
-    #helpBtnLobby{
+    #helpBtnLobby, #closeHelpBtn{
         position: absolute;
         left: 50%;
         transform: translateX(-50%) translateY(300%);
