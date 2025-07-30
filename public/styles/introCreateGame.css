@@ -1,0 +1,161 @@
+/* Stil des zentralen Dialogs ("eichberg-figur") */
+#eichberg.createGame {
+    position: absolute;
+    left: 30%;
+    width: 25%;
+    height: 25%;
+    top: 8%;
+}
+
+/* Seitenspezifisches design/größe der sprechblase*/
+.speech-bubble.createGame {
+    width: 15vw;
+    min-height: 10em;
+    /*height: 20vw;*/
+    position: absolute;
+    top: 3.2vw;
+    left: 73vw;
+}
+
+button.introduction.createGame {
+    position: absolute;
+    left: 72%;
+    top: 80%;
+    width: 4cqw; /* cqw = container width – kann bei kleinen Containern problematisch sein -> media queries */
+    font-size: 1cqw;
+}
+
+.speech.createGame {
+    font-size: 1.9cqw;
+}
+
+#intro2 .speech.createGame {
+    font-size: 2.2cqw;
+}
+
+#intro7 .speech.createGame {
+    font-size: 1.8cqw;
+}
+
+#intro8 .speech.createGame {
+    font-size: 1.8cqw;
+}
+
+#intro9 .speech.createGame {
+    font-size: 3cqw;
+}
+
+#intro85 .speech.createGame {
+    font-size: 2.3cqw;
+}
+
+
+body:not(:has(#intro1[open])) {
+    &:has(#intro5[open]) #start-settings {
+        background-color: red;
+        z-index: 102;
+        pointer-events: none;
+        position: relative;
+    }
+}
+
+body:not(:has(#intro2[open])) {
+    &:has(#intro3[open]) #starting-players {
+        border-radius: 1em;
+        border: 0.5em solid #00d9ff;
+    }
+}
+
+body:not(:has(#intro3[open])) {
+    &:has(#intro4[open]) #starting-cards {
+        border-radius: 1em;
+        border: 0.5em solid #00d9ff;
+    }
+}
+
+body:not(:has(#intro4[open])) {
+    &:has(#intro5[open]) #special-cards {
+        border-radius: 1em;
+        border: 0.5em solid #00d9ff;
+    }
+}
+
+
+
+body:not(:has(#intro5[open])) {
+    &:has(#intro6[open]) #NameInput {
+        z-index: 102;
+        pointer-events: none;
+        position: relative;
+    }
+}
+
+
+
+body:not(:has(#intro6[open])) {
+    &:has(#intro7[open]) #continue-createGame {
+        z-index: 102;
+        pointer-events: none;
+    }
+}
+
+body:not(:has(#intro7[open])) {
+    &:has(#intro8[open]) .backButtonTop {
+        z-index: 102;
+        pointer-events: none;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #eichberg.createGame {
+        width: 50%;
+        position: absolute;
+        top: 10%;
+        left: -30%;
+    }
+
+    .speech-bubble.createGame {
+        top: 8vw;
+        left: 50vw;
+        width: 30vw;
+    }
+
+    .speech.createGame {
+        font-size: 4.3cqw;
+    }
+
+    button.introduction.createGame {
+        left: 53%;
+        top: 76%;
+        width: 17cqw;
+        font-size: 3.6cqw;
+    }
+
+    /* Schriftgröße für bestimmte Intros */
+    #intro2 .speech.createGame {
+        font-size: 4.8cqw;
+    }
+
+    #intro3 .speech.createGame {
+        font-size: 4.8cqw;
+    }
+
+    #intro7 .speech.createGame {
+        font-size: 3.9cqw;
+    }
+
+    #intro8 .speech.createGame {
+        font-size: 4.1cqw;
+    }
+
+    #intro85 .speech.createGame {
+        font-size: 5.5cqw;
+    }
+
+    #intro9 .speech.createGame {
+        font-size: 6cqw;
+    }
+
+}
+
+

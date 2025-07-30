@@ -1,0 +1,266 @@
+.checkmark {
+  cursor: pointer;
+}
+
+#createGame,
+#changeSettings {
+  #mainWrapper {
+    grid-column: 1/-1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  h2 {
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    font-size: 2.5em;
+    color: white;
+    font-weight: 800;
+    -webkit-text-stroke: 0.05em black;
+    margin: 0;
+  }
+
+  #start-settings {
+    border: 0.2em solid white;
+    border-radius: 8%;
+    width: 45%;
+    height: 100%;
+    justify-self: center;
+    /*grid-column: 2;*/
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    h3 {
+      font-size: 1.5em;
+      margin: 0;
+      color: white;
+      font-weight: 800;
+      -webkit-text-stroke: 0.05em black;
+      span {
+        padding-left: 0.25em;
+        padding-right: 0.25em;
+        margin-left: 0.25em;
+        border: 0.1em solid dimgrey;
+        background-color: grey;
+      }
+    }
+
+    button.amount {
+      padding: initial;
+      box-shadow: initial;
+      background-color: white;
+      border: black;
+      font-weight: 800;
+      margin: initial;
+      aspect-ratio: 1/1;
+      text-align: center;
+      width: 7%;
+    }
+
+    input[type='range'] {
+      margin: 0;
+      width: 65%;
+      -webkit-appearance: none;
+      background: var(--primary-yellow);
+      height: 0.5em;
+      border-radius: 4em;
+      border: 0.08em solid black;
+
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 2em;
+        width: 2em;
+        background: var(--primary-yellow);
+        border-radius: 50%;
+        border: 0.1em solid black;
+        cursor: grab;
+      }
+
+      &::-webkit-slider-thumb:active {
+        cursor: grabbing;
+      }
+    }
+  }
+
+  #special-cards {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    text-align: center;
+    padding-left: 3em;
+    padding-right: 3em;
+  }
+
+  .container {
+    padding-left: 2vw;
+    padding-left: 2cqw;
+    -webkit-text-stroke: 0.05em black;
+    margin-top: 0.3vw;
+    color: white;
+    font-size: 1.6vw;
+    font-weight: 850;
+    display: block;
+    position: relative;
+    /*padding-left: 1em;*/
+    margin-top: 0.3cqw;
+    cursor: pointer;
+    font-size: 1.6cqw;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .container input {
+    -webkit-appearance: none;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*height: 2cqw;*/
+    /*width: 2cqw;*/
+    background-color: #eee;
+    height: 2vw;
+    width: 2vw;
+    border: 0.1em solid black;
+  }
+
+  .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+
+  .container input:checked ~ .checkmark {
+    /*background-color: #2196F3;*/
+    background-color: var(--primary-yellow);
+  }
+
+  .checkmark:after {
+    left: 0.7vw;
+    top: 0.3vw;
+    width: 0.5vw;
+    height: 1vh;
+    content: '';
+    position: absolute;
+    display: none;
+  }
+
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  .container .checkmark:after {
+    left: 0.7cqw;
+    top: 0.3cqw;
+    width: 0.5cqw;
+    height: 1cqw;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
+
+input .amount {
+  border: 0.1em solid black;
+}
+
+div#menu-createGame {
+  input {
+    font-size: 3.5vw;
+    font-size: 3.5cqw;
+
+    &:hover {
+      cursor: text;
+    }
+  }
+
+  overflow: hidden;
+  text-align: center;
+  grid-column: 1 / -1;
+  grid-row: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#continue-createGame {
+  aspect-ratio: 2.6/1;
+  width: 25%;
+  font-size: 4cqw;
+}
+
+@media only screen and (max-width: 600px) {
+
+
+
+
+  #createGame,
+  #changeSettings {
+    #special-cards{
+      row-gap: 15%;
+    }
+    .checkmark {
+      height: 5vw;
+      width: 5vw;
+    }
+
+    .container .checkmark:after {
+      left: 1.5vw;
+      top: 0.25vh;
+      width: 1vw;
+      height: 1.25vh;
+
+    }
+
+    #start-settings {
+      width: 80%;
+
+      button.amount {
+        font-size: 5cqw;
+        width: 6cqw;
+      }
+    }
+  }
+
+  div#menu-createGame {
+    button {
+      width: 40%;
+      font-size: 4.6cqw;
+    }
+  }
+  #specialCardsWrap {
+    #special-cards {
+      padding: 5%;
+      .container {
+        font-size: 100%;
+      }
+    }
+  }
+  #help-createGame {
+    position: absolute;
+    width: 30%;
+    font-size: 5cqw;
+    top: 15%;
+    left: 31%;
+  }
+  #continue-createGame {
+    width: 50%;
+  }
+  #createBackBtn {
+    position: absolute;
+    top: 18%;
+    justify-self: center;
+  }
+}

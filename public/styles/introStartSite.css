@@ -1,0 +1,76 @@
+/* Stil des zentralen Dialogs ("eichberg-figur") */
+#eichberg.startsite {
+    width: 35%;
+    height: 35%;
+    position: absolute;
+    top: 15%;
+}
+
+/* Seitenspezifisches design/größe der sprechblase*/
+.speech-bubble.startsite {
+    width: 35vw;
+    min-height: 10em;
+    /*height: 20vw;*/
+    position: absolute;
+    top: 10vw;
+    left: 58vw;
+}
+
+/* Schriftgröße für bestimmte Intros */
+#intro4 .speech.startsite {
+    font-size: 2.5cqw;
+}
+
+#intro5 .speech.startsite {
+    font-size: 2.5cqw;
+}
+
+#intro65 .speech.startsite {
+    font-size: 4.5cqw;
+}
+
+
+button.introduction.startsite, .button.introduction.startsite{
+    position: absolute;
+    left: 75%;
+    top: 80%;
+    width: 7cqw; /* cqw = container width – kann bei kleinen Containern problematisch sein -> media queries */
+    font-size: 2.5cqw;
+    border: 0.25cqw solid black;
+}
+
+
+body:not(:has(#intro3[open])) {
+    &:has(#intro4[open]) #about {
+
+        z-index: 102;
+        pointer-events: none;
+        position: relative;
+    }
+}
+
+body:not(:has(#intro4[open])) {
+    &:has(#intro5[open]) #help {
+
+        z-index: 102;
+        pointer-events: none;
+        position: relative;
+    }
+}
+
+body:not(:has(#intro65[open])) {
+    &:has(#intro6[open]) #start {
+
+        z-index: 102;
+        pointer-events: none;
+        position: relative;
+    }
+}
+
+
+
+
+
+
+
+

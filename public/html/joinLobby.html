@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>joinLobby</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="icon" href="/images/logo.png" type="image.png">
+    <!-- index.js selects the correct page script -->
+    <script src="/scripts/index.js" type="module" defer></script>
+</head>
+<body id="joinLobby">
+<!-- Page header -->
+<div id="header">
+    <section>
+        <h1 id="gameTitle">UYES!</h1>
+        <p id="credits">by Andrii, Bilal, Daria , Simon, Srisharanya</p>
+    </section>
+</div>
+<button class="button backButtonTop" id="joinBackBtn" >BACK</button>
+
+<!-- Main join form -->
+<main class="joinLobby">
+    <form method="POST" action="/api/joinGame">
+        <label for="NameInput"></label>
+        <input id="NameInput" class="Join" type="text" placeholder="Enter your name here..." name="playerName">
+
+        <label for="gameCodeInput"></label>
+        <input id="gameCodeInput" type="text" placeholder="Enter game-code here..." name="code" required>
+
+        <button class="joinForm" id="joinGame" type="submit">JOIN</button>
+    </form>
+</main>
+
+</body>
+</html>

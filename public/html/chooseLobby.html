@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chooseLobby</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="icon" href="/images/logo.png" type="image.png">
+
+    <!-- index.js selects the correct page script -->
+    <script src="/scripts/index.js" type="module" defer></script>
+
+
+</head>
+<body id="chooseLobby">
+
+<button class="button backButtonTop" id="backBtnChooseLobby">BACK</button>
+
+
+<button id="eichberg2"></button>
+
+
+<div id="milch-glas-layer">
+
+    <dialog open="open" class="chooseLobby" id="eichberg">
+    </dialog>
+
+    <div id="intro1wrap" class="chooseLobby intro">
+        <dialog open="open" class="speech-bubble chooseLobby" id="intro1">
+            <p class="speech chooseLobby">
+                Hello There!
+                Here you can join
+                or create a new game.
+            </p>
+            <form method="dialog">
+                <button  class=" chooseLobby introduction">Next</button>
+            </form>
+        </dialog>
+    </div>
+    <div id="intro2wrap" class="chooseLobby intro">
+        <dialog open="open" class="speech-bubble chooseLobby" id="intro2">
+            <p class="speech chooseLobby">
+                Click here to create a new Lobby.
+            </p>
+            <form method="dialog">
+                <button  class=" chooseLobby introduction">Next</button>
+            </form>
+        </dialog>
+    </div>
+    <div id="intro3wrap" class="chooseLobby intro">
+        <dialog open="open" class="speech-bubble chooseLobby" id="intro3">
+            <p class="speech chooseLobby">
+                Or click here to join a game.
+                Therefore you need the secret
+                code from the host.
+            </p>
+            <form method="dialog">
+                <button  class=" chooseLobby introduction">Next</button>
+            </form>
+        </dialog>
+    </div>
+    <div id="intro4wrap" class="chooseLobby intro">
+        <dialog open="open" class="speech-bubble chooseLobby" id="intro4">
+            <p class="speech chooseLobby">
+                And here you get back to
+                the previous page!
+            </p>
+            <form method="dialog">
+                <button  class=" chooseLobby introduction">Next</button>
+            </form>
+        </dialog>
+    </div>
+
+
+</div>
+
+<!-- Page header -->
+<div id="header">
+    <section >
+        <h1 id="gameTitle">UYES!</h1>
+        <p id="credits">by Andrii, Bilal, Daria , Simon, Srisharanya</p>
+    </section>
+</div>
+<!-- Lobby choice buttons -->
+<div id="gameOnMain">
+    <h2>Game On!</h2>
+    <div id="lobbyButtons">
+        <button class="button lobby" id="create">CREATE</button>
+        <button class="button lobby" id="join">JOIN</button>
+
+    </div>
+</div>
+
+</body>
+</html>

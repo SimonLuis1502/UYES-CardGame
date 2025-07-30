@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>UYES Help Page</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="icon" href="/images/logo.png" type="image.png">
+
+    <!-- index.js selects the correct page script -->
+    <script src="/scripts/index.js" type="module" defer></script>
+
+</head>
+<body id="help-page-body" class="help-page-body">
+
+<!-- Page header -->
+<div id="header">
+    <section >
+        <h1 id="gameTitle">UYES!</h1>
+        <p id="credits">by Andrii, Bilal, Daria , Simon, Srisharanya</p>
+    </section>
+</div>
+<div class="help-rules-container">
+    <details class="help-collapsible-section">
+        <summary class="help-section-header">UYES! Rules</summary>
+        <div class="help-section-content">
+            <p>Read the full rules on our dedicated page.</p>
+            <button class="button" id="rulesBtnHelp">Go to Rules</button>
+        </div>
+    </details>
+
+    <details class="help-collapsible-section">
+        <summary class="help-section-header">Volume and Language Settings</summary>
+        <div class="help-section-content">
+            <div id="help-volume">
+                <h3 class="help-amount">Volume:</h3>
+                <button class="help-reduce-volume">-</button>
+                <label>
+                    <input id="volume-range" type="range" min="0" max="1" step="0.1" value="0.5">
+                </label>
+                <button class="help-increase-volume">+</button>
+            </div>
+
+        </div>
+    </details>
+
+    <details class="help-collapsible-section">
+        <summary class="help-section-header">Troubleshooting</summary>
+        <div class="help-section-content">
+            <strong>Having problems while playing?</strong>
+            <ul>Check your internet connection</ul>
+            <ul>Refresh the website/app</ul>
+            <ul>Make sure your device is updated to the latest Android/iOS/Windows version</ul>
+        </div>
+    </details>
+</div>
+
+
+
+<button class="button backButtonTop" id="backBtnHelp">BACK</button>
+
+
+</body>
+</html>

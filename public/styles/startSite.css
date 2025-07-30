@@ -1,0 +1,102 @@
+@import url("intro.css");
+
+
+body {
+    overflow: auto;
+    display: grid;
+    grid-template-columns: 25vw 50vw 25vw; /* Aufteilung in 3 Spalten */
+    grid-template-rows: 25vh 50vh 25vh; /* 3 Reihen – obere, mittlere, untere Zone */
+    margin: 0;
+    gap: 0;
+    background-image: url("../images/redGradientBackground.png"); /* Hintergrundgrafik */
+}
+
+/* HEADER – Titel & Credits */
+
+
+/* Mittelbereich */
+div#main {
+    overflow: hidden;
+    text-align: center;
+    grid-column: 1 / -1;
+    grid-row: 2;
+}
+
+/* Unteres Menü */
+div#menu {
+    overflow: hidden;
+    text-align: center;
+    grid-column: 1 / -1;
+    grid-row: 3;
+
+    section.menu {
+        font-size: 100%;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .button {
+        flex-grow: 0;
+        aspect-ratio: 2.5/1;
+        width: 15%;
+        background-color: var(--primary-yellow);
+        border: solid 0.5cqh white; /* ❗️cqh = container-height unit – bitte check Kompatibilität */
+        border-radius: 15%;
+        font-weight: 800;
+        font-size: 3.5cqw; /* ❗️cqw = container-width unit – modern, aber nicht überall unterstützt */
+    }
+
+    #start {
+        width: 20%;
+        margin-left: 5%;
+        margin-right: 5%;
+        font-size: 4.5cqw; /* größerer Start-Button */
+    }
+}
+
+/* Bild (Gruppenbild oder ähnliches) */
+#group {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    aspect-ratio: 1/1;
+    width: 25%;
+    max-width: 100cqh; /* ❗️Auch hier: moderne Einheit – checke auf Mobilgeräten */
+    background-image: url("../images/group.png");
+    background-size: contain; /* Inhalt skalieren, ohne zu beschneiden */
+}
+
+@media only screen and (max-width: 600px) {
+    #group {
+        width: 100%
+    }
+    #menu{
+        margin-bottom: 20%;
+    }
+    #menu button {
+        position: relative;
+    }
+
+    div#menu #start {
+        width: 35%;
+    }
+
+    div#menu #help {
+        width: 25%;
+        top: 25%;
+    }
+
+    div#menu #about {
+        width: 25%;
+        top: 25%;
+    }
+
+    #eichberg2 {
+        top: 85%;
+        left: 36%;
+        width: 25%;
+    }
+}

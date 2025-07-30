@@ -1,0 +1,59 @@
+body#chooseLobby {
+  #gameOnMain {
+    grid-column: 1/-1;
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    text-align: center;
+    h2 {
+      margin: 0;
+      color: white;
+      -webkit-text-stroke: 0.25vw;
+      -webkit-text-stroke: 0.25cqw black;
+      font-size: 5vw;
+      font-size: 5cqw;
+    }
+    #lobbyButtons {
+      margin-top: 10%;
+      display: flex;
+      justify-content: space-evenly;
+      .lobby {
+        flex-grow: 0;
+        flex-shrink: 0;
+        border-radius: 10%;
+        aspect-ratio: 2.5/1;
+        width: 20%;
+        font-weight: 800;
+        font-size: 4vw;
+        font-size: 4cqw;
+        background-color: var(--primary-yellow);
+        border: solid 0.5vh white;
+        border: solid 0.5cqh white;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  body#chooseLobby {
+    #gameOnMain {
+      h2 {
+        font-size: 500%;
+      }
+      #lobbyButtons {
+        margin-top: 40%;
+        .lobby {
+          width: 25%;
+        }
+      }
+    }
+  }
+  #backBtnChooseLobby {
+    position: relative;
+    grid-column: 1 / -1;
+    grid-row: 3;
+    justify-self: center;
+    align-self: center;
+  }
+}

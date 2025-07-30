@@ -1,0 +1,786 @@
+#UYES {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translateX(-50%);
+
+
+    aspect-ratio: 2.5/1;
+    width: 10%;
+    pointer-events: none;
+    background-color: dimgrey;
+    border: solid 0.5cqh darkgrey; /* ❗️cqh = container-height unit – bitte check Kompatibilität */
+    border-radius: 15%;
+    font-weight: 800;
+    font-size: 2cqw;
+}
+
+#player-hand-container {
+    grid-row: 3;
+    grid-column: 2;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    /*justify-content: center;*/
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: clip;
+    gap: 0;
+
+}
+
+/* prevent left overflow of the first card in hand */
+#player-hand-container span.card:first-child {
+    margin-left: 0;
+}
+
+#player-hand-container::-webkit-scrollbar {
+    display: none;            /* Chrome, Safari */
+}
+
+#yourTurn {
+    grid-row: 3;
+    grid-column: 3;
+
+    /*position:absolute;*/
+    text-align: center;
+    font-size: 2cqw;
+    font-weight: 900;
+    color: var(--primary-yellow);
+    -webkit-text-stroke: 0.07cqw white;
+    text-shadow: -0.18cqw 0.2cqw black;
+
+    top: 72%;
+    left: 65%;
+
+    div {
+        align-content: center;
+        justify-self: center;
+        left: 50%;
+        transform: translateX(-50%);
+        aspect-ratio: 1/1;
+        width: 30%;
+        border: 0.25cqw solid white;
+        font-size: 7cqw;
+    }
+
+}
+
+.card.normal {
+    margin-left: -2em;
+    flex-shrink: 0;
+    transition: transform 0.5s;
+}
+
+.card.normal.hovered {
+    transform: translateY(-1.6em);
+    z-index: 999;
+}
+
+.card.normal.hovered + .card {
+    transform: translateX(0.5em);
+}
+
+.card.normal.prev-hovered {
+    transform: translateX(-0.5em);
+}
+
+.card.unplayable {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+#piles {
+    grid-column: 1/-1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    .pile {
+
+        margin: 0 10% 0 10%;
+
+
+        h2 {
+            text-align: center;
+            font-size: 2cqw;
+            font-weight: 900;
+            color: white;
+            -webkit-text-stroke: 0.07cqw black;
+            margin: 0;
+        }
+
+    }
+}
+
+#player-avatars1{
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    #player-avatars2 {
+        width: 80vw;
+        height: 50vh;
+
+
+
+
+
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        pointer-events: none;
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+    }
+}
+
+
+.avatar {
+    border: 0.2cqw solid white;
+    border-radius: 10%;
+    aspect-ratio: 1/1;
+    width: 10%;
+    position: relative;
+    background-color: rgba(169, 169, 169, 0.5); /* Grauton mit 50% Transparenz */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-grow: 0;
+
+    .player-name {
+        position: absolute;
+        top: -1.2em;
+        left: 50%;
+        transform: translateX(-50%);
+        width: max-content;
+        color: white;
+        -webkit-text-stroke: 0.05cqw black;
+        font-weight: 600;
+        pointer-events: none;
+        text-shadow: 0 0.05em 0.1em black;
+    }
+
+    .cardHands {
+        position: relative;
+        top: 20%;
+
+        display: flex;
+        flex-direction: column;
+
+        .avatar-row {
+            .cardsleft {
+                color: white;
+                -webkit-text-stroke: 0.07cqw black;
+                font-size: 2cqw;
+                margin: 0;
+            }
+
+            display: flex;
+            justify-content: center;
+        }
+
+        .card {
+
+            width: 25%;
+        }
+    }
+
+}
+
+.avatar.inactive {
+    flex-grow: 0;
+    opacity: 0.3;
+}
+
+.avatar.active,
+#own-avatar.active {
+    border: 0.8cqw solid var(--primary-yellow);
+    box-shadow: 0 0 1cqw var(--primary-yellow);
+}
+
+.uyes-bubble {
+    position: absolute;
+    bottom: 110%;
+    left: 110%;
+    font-size: 3cqw;
+    color: white;
+    -webkit-text-stroke: 0.07cqw black;
+    background-color: var(--primary-red);
+    border: 0.5cqw solid var(--primary-yellow);
+    border-radius: 25% 25% 25% 0;
+    pointer-events: none;
+    display: none;
+    z-index: 1;
+}
+
+.uyes-bubble.active {
+    display: block;
+}
+
+.avatar.left-hand .cardHands {
+    right: 105%;
+}
+
+.avatar.right-hand .cardHands {
+    left: 105%;
+}
+
+/* ensure consistent layout independent of row */
+#player-avatars2 .row > .avatar:first-child .cardHands {
+    left: 105%;
+    right: auto;
+}
+
+#player-avatars2 .row > .avatar:last-child .cardHands {
+    right: 105%;
+    left: auto;
+}
+
+#player1 {
+    background-size: contain;
+}
+
+#player3 {
+    background-size: contain;
+}
+
+#own-avatar {
+
+    border: 0.2cqw solid white;
+    border-radius: 10%;
+    aspect-ratio: 1/1;
+    width: 10%;
+    position: fixed;
+    background-size: contain;
+    top: 78%;
+    left: 8%;
+
+    /* show card count to the left */
+    .cardHands {
+        right: 105%;
+        position: relative;
+        top: 20%;
+        display: flex;
+        flex-direction: column;
+
+        .avatar-row {
+            display: flex;
+            justify-content: center;
+
+            .cardsleft {
+                color: white;
+                -webkit-text-stroke: 0.07cqw black;
+                font-size: 2cqw;
+                margin: 0;
+            }
+        }
+
+        .card {
+            width: 25%;
+        }
+    }
+
+}
+
+body#gameplay {
+    #own-avatar {
+        background-color: var(--secondary-yellow);
+    }
+}
+
+.my-turn #UYES {
+    pointer-events: initial;
+    background-color: var(--primary-yellow);
+    border: solid 0.5cqh white;
+}
+
+body#gameplay {
+
+    #winner {
+        position: absolute;
+        z-index: 101;
+        border-radius: 10%;
+        aspect-ratio: 1/1;
+        width: 20%;
+        top: 20%;
+        left: 20%;
+
+        border: 0.8cqw solid var(--primary-yellow);
+        background-color: var(--secondary-yellow);
+        opacity: 0.5;
+
+        background-size: contain;
+
+        .player-name {
+            position: absolute;
+            top: -2em;
+            left: 50%;
+            transform: translateX(-50%);
+            width: max-content;
+            color: white;
+            -webkit-text-stroke: 0.05cqw black;
+            font-weight: 600;
+            pointer-events: none;
+            text-shadow: 0 0.05em 0.1em black;
+            font-size: 4cqw;
+        }
+
+        &:after {
+            content: " has won the game!";
+            color: white;
+            -webkit-text-stroke: 0.25cqw black;
+            width: 300%;
+            position: absolute;
+            left: 120%;
+            font-size: 8cqw;
+
+        }
+    }
+
+    #milchglas2 {
+        position: fixed;
+        background: dimgrey;
+        opacity: 0.9;
+        backdrop-filter: blur(10px); /* erzeugt den "Milchglas"-Effekt */
+        z-index: 100;
+        width: 100%;
+        height: 100%;
+    }
+
+    #ending-buttons {
+        position: absolute;
+        z-index: 101;
+        display: flex;
+        width: 100%;
+        height: 30%;
+        justify-content: space-evenly;
+        align-items: center;
+        bottom: 0;
+
+        .ending {
+            flex-grow: 0;
+
+
+            aspect-ratio: 2.5/1;
+            width: 20%;
+
+            background-color: var(--primary-yellow);
+            border: solid 0.5cqh white; /* ❗️cqh = container-height unit – bitte check Kompatibilität */
+            border-radius: 15%;
+            font-weight: 800;
+            font-size: 4cqw;
+        }
+    }
+
+    #wait-for-host {
+        position: absolute;
+        z-index: 101;
+        display: none;
+        width: 100%;
+        height: 30%;
+        justify-content: center;
+        align-items: center;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        color: white;
+        -webkit-text-stroke: 0.045cqw black;
+        font-weight: 800;
+        font-size: 5cqw;
+    }
+
+}
+
+#draw-pile {
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.my-turn #draw-pile {
+    pointer-events: auto;
+}
+
+.my-turn #draw-pile span.card:hover {
+    cursor: grab;
+}
+
+.my-turn #draw-pile span.card:active {
+    cursor: grabbing;
+}
+
+.my-turn #draw-pile span.card:hover *,
+.my-turn #player-hand-container span.card:not(.unplayable):hover * {
+    cursor: grab;
+}
+
+.my-turn #draw-pile span.card:active *,
+.my-turn #player-hand-container span.card:not(.unplayable):active * {
+    cursor: grabbing;
+}
+
+.my-turn #player-hand-container span.card:not(.unplayable):hover {
+    cursor: grab;
+}
+
+.my-turn #player-hand-container span.card:not(.unplayable):active {
+    cursor: grabbing;
+}
+
+.Joiner #ending-buttons {
+    display: none;
+}
+
+.Joiner #wait-for-host {
+    display: flex;
+}
+
+#helpButtonClicked{
+    display: none;
+
+    &.helpOpen{
+        display:flex;
+        flex-direction: column;
+        position: absolute;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px); /* erzeugt den "Milchglas"-Effekt */
+        z-index: 100;
+        width: 100%;
+        height: 100%;
+        justify-content: space-evenly;
+        align-items: center;
+
+        *{
+            width: 25%;
+            flex-grow: 0;
+        }
+        #closeHelpBtn{
+            background-color: var(--secondary-yellow);
+            position: absolute;
+            width: 10%;
+            top: 0;
+            left: 0;
+        }
+        #ExitGameBtn{
+            font-size: 2em;
+        }
+    }
+}
+
+#submitLeaving {
+    display: none;
+
+    &.exitOpen {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px); /* erzeugt den "Milchglas"-Effekt */
+        z-index: 101;
+        width: 100%;
+        height: 100%;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    h2{
+        font-size: 6em;
+        color: white;
+        -webkit-text-stroke: 0.045em black;
+        margin-bottom: 0;
+    }
+    div{
+        display: flex;
+        button{
+            width: 50%;
+        }
+    }
+
+}
+
+
+#color-overlay {
+    position: absolute;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.4);
+    z-index: 150;
+}
+#color-overlay.active {
+    display: flex;
+}
+#color-options {
+    display: flex;
+    gap: 1em;
+}
+#color-options .card.big {
+    cursor: pointer;}
+
+#gameDirection {
+    position: absolute;
+    color: white;
+    display: flex;
+    font-size: 500%;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    justify-content: center;
+
+    * {
+        margin-top: 22cqh;
+    }
+
+}
+
+#changeAvatar{
+    position: absolute;
+    aspect-ratio: 1/1;
+    width: 20%;
+    border-radius: 50%;
+    border: 0;
+    background: none;
+    box-shadow: none;
+    color: white;
+
+    top: 80%;
+    left: 80%;
+    margin: 0;
+    z-index:0;
+
+
+}
+
+#timerContainer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+}
+#timer{
+    color:white;
+    font-size: 500%;
+    margin: 0;
+}
+
+/* simple grow animation for avatar change button */
+#changeAvatar.grow {
+    animation: avatarGrow 0.3s ease-in-out;
+}
+
+@keyframes avatarGrow {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.specialCard{
+    color: black;
+    font-size: 120%;
+}
+
+.draw{
+
+    &.notVisible{
+        display: none;
+    }
+
+    z-index: 100;
+    position: absolute;
+    top: 44%;
+    left: 32%;
+
+    &.leftDown{
+        animation: toLeftDown   ease-in-out 1s;
+    }
+    &.leftTop{
+        animation: toLeftTop   ease-in-out 1s;
+    }
+    &.rightDown{
+        animation: toRightDown   ease-in-out 1s;
+    }
+    &.rightTop{
+        animation: toRightTop   ease-in-out 1s;
+    }
+    &.self{
+        animation: toSelf   ease-in-out 1s;
+    }
+}
+
+.discard{
+
+    &.notVisible{
+        display: none;
+    }
+
+    animation: toDiscard   ease-in-out 1s;
+    z-index: 100;
+    position: absolute;
+    &.leftDown{
+        top: 60%;
+        left: 22%;
+    }
+    &.leftTop{
+        top: 25%;
+        left: 22%;
+
+    }
+    &.rightDown{
+        top: 60%;
+        left: 76%;
+    }
+    &.rightTop{
+        top: 25%;
+        left: 76%;
+    }
+    &.self{
+        left: 50%;
+        top:70%;
+    }
+}
+
+
+
+@keyframes toDiscard{
+    0%{opacity: 100%;}
+    60%{
+        opacity: 100%;
+    }
+    100%{
+        opacity: 0;
+        top: 44%;
+        left: 62%;;
+    }
+}
+
+@keyframes toLeftDown{
+    0%{opacity: 100%;}
+    60%{
+        opacity: 100%;
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(100%) translateX(-150%);
+    }
+}
+
+@keyframes toLeftTop{
+    0%{opacity: 100%;}
+    60%{
+        opacity: 100%;
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-125%) translateX(-150%);
+    }
+}
+@keyframes toRightDown{
+    0%{opacity: 100%;}
+    60%{
+        opacity: 100%;
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(100%) translateX(700%);
+    }
+}
+@keyframes toRightTop{
+    0%{opacity: 100%;}
+    60%{
+        opacity: 100%;
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-125%) translateX(700%);
+    }
+}
+
+@keyframes toSelf{
+    0%{opacity: 100%;}
+    60%{
+        opacity: 100%;
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(200%) translateX(300%);
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    #piles{
+        flex-wrap: nowrap;
+
+        .pile{
+
+            h2{
+                font-size: 200%;
+            }
+
+            &:first-child{
+                margin: 0 15% 0 0;
+
+            }
+            &+ .pile{
+                margin: 0 0 0 15%;
+            }
+        }
+    }
+    #helpButtonClicked{
+
+        &.helpOpen{
+            *{
+                width: 35%;
+                flex-grow: 0;
+            }
+            #closeHelpBtn{
+                position: absolute;
+                top: 16%;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 30vw;
+                & + * {
+                        margin-top: 20%;
+                }
+            }
+
+
+        }
+    }
+
+    #timer{
+        font-size: 300%;
+    }
+    #gameDirection{
+        *{
+            margin-top: 30cqh
+        }
+    }
+    .avatar{
+        width: 15%;
+    }
+    #UYES{
+        top: 75%;
+        transform: translateY(-50%) translateX(-50%);
+        width: 25%;
+        font-size: 100%;
+    }
+}
+

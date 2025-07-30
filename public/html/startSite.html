@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startsite</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="icon" href="/images/logo.png" type="image.png">
+
+    <!-- index.js selects the correct page script -->
+    <script src="/scripts/index.js" type="module" defer></script>
+
+</head>
+<body id="startsite">
+<!-- Intro dialogs overlay -->
+<div id="milch-glas-layer">
+
+    <dialog open="open" class="startsite" id="eichberg">
+    </dialog>
+
+    <div id="intro1wrap" class="startsite intro">
+        <dialog open="open" class="speech-bubble startsite" id="intro1">
+            <p class="speech startsite">
+                Welcome to UYES!
+                Our round-based card game that probably sounds
+                familiar to most of you...
+            </p>
+            <form method="dialog">
+                <button class="introduction startsite">Next</button>
+            </form>
+        </dialog>
+    </div>
+    <div id="intro2wrap" class="startsite intro">
+        <dialog open="open" class="speech-bubble startsite" id="intro2">
+            <p class="speech startsite">
+                If you want, I can show you around and give you an Intro
+                to our application?
+            </p>
+            <form method="dialog">
+
+                <button class="introduction startsite">Yes</button>
+                <button type="button" class="introduction startsite" id="NO">No</button>
+            </form>
+        </dialog>
+    </div>
+    <div id="intro3wrap" class="startsite intro">
+        <dialog open="open" class="speech-bubble startsite" id="intro3">
+            <p class="speech startsite">
+                Nice! UYES is a card game based on UNO.
+                No worries if You dont know it.
+                You can look the rules up later.
+            </p>
+            <form method="dialog">
+                <button class="introduction startsite">Next</button>
+            </form>
+        </dialog>
+    </div>
+    <div id="intro4wrap" class="startsite intro">
+        <dialog open="open" class="speech-bubble startsite" id="intro4">
+            <p class="speech startsite">
+                For your orientation: Curious about our team, our idea, and how UYES came to life?
+                Or interested in what’s next for us?
+                Click this button to learn more!
+            </p>
+            <form method="dialog">
+                <button class="introduction startsite">Next</button>
+            </form>
+        </dialog>
+    </div>
+    <div id="intro5wrap" class="startsite intro">
+        <dialog open="open" class="speech-bubble startsite" id="intro5">
+            <p class="speech startsite">
+                If you're unsure about a rule, need to adjust settings,
+                or just lost? This button is your way out.
+                It takes you to the rulebook, settings, or back to the home screen.
+            </p>
+            <form method="dialog">
+                <button class="introduction startsite">Next</button>
+            </form>
+        </dialog>
+    </div>
+    <div id="intro65wrap" class="startsite intro">
+        <dialog open="open" class="speech-bubble startsite" id="intro65">
+            <p class="speech startsite">
+                To replay this intro at any time
+                just click on me!
+            </p>
+            <form method="dialog">
+                <button class="introduction startsite">Next</button>
+            </form>
+        </dialog>
+    </div>
+    <div id="intro6wrap" class="startsite intro">
+        <dialog open="open" class="speech-bubble startsite" id="intro6">
+            <p class="speech startsite">
+                Perfect! Now you're familiar with the start page.
+                Click here to continue and to start your first game!
+            </p>
+            <form method="dialog">
+                <button class="introduction startsite">Next</button>
+            </form>
+        </dialog>
+    </div>
+
+</div>
+
+<!-- Page header -->
+<div id="header">
+    <section>
+        <h1 id="gameTitle">UYES!</h1>
+        <p id="credits">by Andrii, Bilal, Daria , Simon, Srisharanya</p>
+    </section>
+</div>
+
+<!-- Main content -->
+<div id="main" class="startSite">
+    <div id="group">
+    </div>
+</div>
+<!-- Navigation menu buttons -->
+<div id="menu" >
+    <section class="menu">
+        <button id="about">ABOUT</button>
+        <button id="start">START</button>
+        <button id="help">HELP</button>
+    </section>
+</div>
+
+<button id="eichberg2"></button>
+
+
+</body>
+</html>

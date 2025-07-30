@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Settings</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="icon" href="/images/logo.png" type="image.png">
+    <!-- index.js selects the correct page script -->
+    <script src="/scripts/index.js" type="module" defer></script>
+</head>
+<body id="changeSettings">
+<button class="button backButtonTop" id="createBackBtn">BACK</button>
+<!-- Page header -->
+<div id="header">
+    <section>
+        <h1 id="gameTitle">UYES!</h1>
+        <p id="credits">by Andrii, Bilal, Daria , Simon, Srisharanya</p>
+    </section>
+</div>
+<!-- Settings form -->
+<div id="mainWrapper">
+    <h2>Settings</h2>
+    <div id="start-settings">
+        <div id="starting-players">
+            <h3 class="amount">Starting Players:  <span id="playerCount">4</span></h3>
+            <button class="subtract amount" disabled>-</button>
+            <input id="playerSlider" type="range" min="2" max="5" step="1.0" value="4" disabled>
+            <button class="add amount" disabled>+</button>
+        </div>
+        <div id="starting-cards">
+            <h3 class="amount">Starting Cards:<span id="cardCount">4</span></h3>
+            <button class="subtract amount">-</button>
+            <input id="cardSlider" type="range" min="4" max="30" step="1.0" value="7">
+            <button class="add amount">+</button>
+        </div>
+        <div id>
+            <h3>Special Cards:</h3>
+            <div id="special-cards">
+                <label class="container">
+                    Draw Two!
+                    <input id="draw2" type="checkbox" checked>
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">
+                    Reverse!
+                    <input id="reverse" type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">
+                    Skip!
+                    <input id="skip" type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">
+                    Wild!
+                    <input id="wild" type="checkbox" checked>
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">
+                    Wild Draw Four!
+                    <input id="wild+4" type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">
+                    Select All!
+                    <input id="check-all" type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="menu-createGame">
+    <button id="start-new-game">START GAME</button>
+</div>
+</body>
+</html>

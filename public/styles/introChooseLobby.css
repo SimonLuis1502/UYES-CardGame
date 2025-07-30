@@ -1,0 +1,50 @@
+#eichberg.chooseLobby {
+    width: 25%;
+    height: 25%;
+    position: absolute;
+    top: 15%;
+}
+
+.speech-bubble.chooseLobby{
+    width: 35%;
+    min-height: 10em;
+    position: absolute;
+    top: 10%;
+    left: 60%;
+}
+
+button.introduction.chooseLobby{
+    position: absolute;
+    left: 75%;
+    top: 80%;
+    width: 7cqw; /* cqw = container width – kann bei kleinen Containern problematisch sein -> media queries */
+    font-size: 1.5cqw;
+}
+
+
+
+body:not(:has(#intro1[open])) {
+    &:has(#intro2[open]) #create {
+
+        z-index:102;
+        pointer-events: none;
+        position: relative;
+    }
+}
+
+body:not(:has(#intro2[open])) {
+    &:has(#intro3[open]) #join {
+
+        z-index:102;
+        pointer-events: none;
+        position: relative;
+    }
+}
+
+body:not(:has(#intro3[open])) {
+    &:has(#intro4[open]) #help-chooseLobby {
+
+        z-index:102;
+        pointer-events: none;
+    }
+}

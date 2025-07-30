@@ -1,0 +1,105 @@
+/*one card consists out of 3 spans while the outer one
+gets the classes card and the size (big, normal, small) and the color (red, blue, yellow, green or if
+the backside is visible back
+the inner one contains the shown card value as a normal content*/
+.card {
+    container-type: inline-size; /*set span as a container to create different relative card sizes */
+    display: inline-block; /*makes card a block*/
+    aspect-ratio: 62/88; /*fixed card like aspect ratio*/
+    border-radius: 8%; /*rounded corners cards*/
+    border: solid 0.06ex black;
+    background-color: white;
+    padding: 0.08em;
+
+    &.big {
+        width: 8em;
+    }
+
+    &.normal {
+        width: 5em;
+    }
+
+    &.small {
+        width: 1em;
+    }
+
+    * {
+        font-size: 45cqw; /*font set as relative to container size(=card size)*/
+    }
+
+    > span { /*area on card with the color*/
+        padding: 0;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        border-radius: 8%;
+        justify-content: center;
+        align-items: center;
+
+        > span { /*area with the oval and the number*/
+            background-color: white;
+            display: flex;
+            width: 150%;
+            height: 95%;
+            border-radius: 180% 45% 180% 45%; /*creates oval shape*/
+            justify-content: center;
+            align-items: center;
+            font-weight: 900;
+
+        }
+    }
+
+    &.back { /*backside of the cards*/
+
+        > span {
+            background-color: black;
+
+            > span {
+                background-color: var(--primary-red) ;
+                color: transparent; /* not show card number*/
+                -webkit-text-stroke: initial;
+                text-shadow: initial;
+
+
+                &:before { /*add the uno/uyes logo*/
+                    position: absolute;
+                    content: "UYES";
+                    transform: rotate(-40deg);
+                    color: var(--primary-yellow) ;
+                    -webkit-text-stroke: 0.045em white; /*white outline of logo text*/
+                    font-size: 0.85em;
+                    text-shadow: -0.13em 0.1em black;
+
+                }
+            }
+        }
+    }
+}
+
+.red > span {
+    background-color: var(--primary-red);
+}
+
+.yellow > span {
+    background-color: var(--primary-yellow)
+;
+}
+
+.blue > span {
+    background-color: var(--primary-blue)
+;
+}
+
+.green > span {
+    background-color: var(--primary-green);
+}
+
+.wild > span {
+    background: linear-gradient(45deg,
+        var(--primary-red),
+        var(--primary-yellow),
+        var(--primary-green),
+        var(--primary-blue));
+}
+
+

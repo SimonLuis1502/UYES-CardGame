@@ -1,0 +1,18 @@
+@import url("generalStyles.css");
+@import url("intro.css");
+
+@import url("startSite.css");
+
+@import url("chooseLobby.css");
+@import url("createGame.css");
+@import url("joinLobby.css");
+@import url("lobby.css");
+
+
+
+@import url("gameplay.css");
+
+@import url("sampleCard.css");
+
+@import url("helpPage.css");
+@import url("aboutPage.css");

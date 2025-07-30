@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>createGame</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="icon" href="/images/logo.png" type="image.png">
+
+    <!-- index.js selects the correct page script -->
+    <script src="/scripts/index.js" type="module" defer></script>
+
+
+</head>
+<body id="createGame">
+<!-- Back button / overlay for intro -->
+
+<button class="button backButtonTop"  id="createBackBtn">BACK</button>
+
+<div id="milch-glas-layer">
+
+    <dialog open="open" class="createGame" id="eichberg">
+    </dialog>
+
+    <div id="intro1wrap" class="createGame intro">
+        <dialog open="open" class="speech-bubble createGame" id="intro1">
+            <p class="speech createGame">
+                Hey! I see you made it!
+                Let me just introduce you to
+                what you can do here!
+            </p>
+            <form method="dialog">
+                <button class=" createGame introduction">Next</button>
+            </form>
+        </dialog>
+    </div>
+    <div id="intro2wrap" class="createGame intro">
+        <dialog open="open" class="speech-bubble createGame" id="intro2">
+            <p class="speech createGame">
+                These are the settings you
+                can choose for your game!
+            </p>
+            <form method="dialog">
+                <button class=" createGame introduction">Next</button>
+            </form>
+        </dialog>
+    </div>
+    <div id="intro3wrap" class="createGame intro">
+        <dialog open="open" class="speech-bubble createGame" id="intro3">
+            <p class="speech createGame">
+                Here you can choose the amount of
+                players you want to play with.
+            </p>
+            <form method="dialog">
+                <button class="introduction createGame">Next</button>
+            </form>
+        </dialog>
+    </div>
+    <div id="intro4wrap" class="createGame intro">
+        <dialog open="open" class="speech-bubble createGame" id="intro4">
+            <p class="speech createGame">
+                With this control you can
+                decide with how many cards
+                the game will start.
+            </p>
+            <form method="dialog">
+                <button class="introduction createGame">Next</button>
+            </form>
+        </dialog>
+    </div>
+    <div id="intro5wrap" class="createGame intro">
+        <dialog open="open" class="speech-bubble createGame" id="intro5">
+            <p class="speech createGame">
+                And here you can choose which
+                special cards will be active in
+                your game.
+            </p>
+            <form method="dialog">
+                <button class="introduction createGame">Next</button>
+            </form>
+        </dialog>
+    </div>
+    <div id="intro6wrap" class="createGame intro">
+        <dialog open="open" class="speech-bubble createGame" id="intro6">
+            <p class="speech createGame">
+                Nice! Here you can enter your Name!
+                If you dont you'll get a random one.
+            </p>
+            <form method="dialog">
+                <button class="introduction createGame">Next</button>
+            </form>
+        </dialog>
+    </div>
+    <div id="intro7wrap" class="c intro">
+        <dialog open="open" class="speech-bubble createGame" id="intro7">
+            <p class="speech createGame">
+                Hit this button to start the game!
+                – I’m sure you’ll figure things out quickly from there!
+            </p>
+            <form method="dialog">
+                <button class="introduction createGame">Next</button>
+            </form>
+        </dialog>
+    </div>
+    <div id="intro8wrap" class="createGame intro">
+        <dialog open="open" class="speech-bubble createGame" id="intro8">
+            <p class="speech createGame">
+                And of course this button will again bring
+                you back to the previous page.
+            </p>
+            <form method="dialog">
+                <button class="introduction createGame">Next</button>
+            </form>
+        </dialog>
+    </div>
+    <div id="intro85wrap" class="createGame intro">
+        <dialog open="open" class="speech-bubble createGame" id="intro85">
+            <p class="speech createGame">
+                To replay this intro at any time
+                just click on me!
+            </p>
+            <form method="dialog">
+                <button class="introduction createGame">Next</button>
+            </form>
+        </dialog>
+    </div>
+    <div id="intro9wrap" class="createGame intro">
+        <dialog open="open" class="speech-bubble createGame" id="intro9">
+            <p class="speech createGame">
+                Have fun and enjoy the game!
+            </p>
+            <form method="dialog">
+                <button class="introduction createGame">Next</button>
+            </form>
+        </dialog>
+    </div>
+</div>
+
+<!-- Page header -->
+<div id="header">
+    <section>
+        <h1 id="gameTitle">UYES!</h1>
+        <p id="credits">by Andrii, Bilal, Daria , Simon, Srisharanya</p>
+    </section>
+</div>
+<div id="mainWrapper">
+    <h2>Settings</h2>
+    <div id="start-settings">
+        <div id="starting-players">
+            <h3 class="amount">Starting Players:  <span id="playerCount">4</span></h3>
+
+            <button class="subtract amount">-</button>
+
+            <input id="playerSlider" type="range" min="2" max="5" step="1.0" value="4">
+
+            <button class="add amount">+</button>
+
+        </div>
+        <div id="starting-cards">
+            <h3 class="amount">Starting Cards:<span id="cardCount">4</span></h3>
+            <button class="subtract amount">-</button>
+            <input id="cardSlider" type="range" min="4" max="30" step="1.0" value="7">
+            <button class="add amount">+</button>
+
+        </div>
+        <div id="specialCardsWrap">
+            <h3>Special Cards:</h3>
+            <div id="special-cards">
+                <label class="container">
+                    Draw Two!
+                    <input id="draw2" type="checkbox" checked>
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">
+                    Reverse!
+                    <input id="reverse" type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">
+                    Skip!
+                    <input id="skip" type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">
+                    Wild!
+                    <input id="wild" type="checkbox" checked>
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">
+                    Wild Draw Four!
+                    <input id="wild+4" type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">
+                    Select All!
+                    <input id="check-all" type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="menu-createGame">
+    <form method="post" >
+        <label for="NameInput"></label>
+        <input id="NameInput" type="text" placeholder="Enter your name here..." name="playerName" required>
+    </form>
+    <button id="continue-createGame">CONTINUE</button>
+
+
+</div>
+<button id="eichberg2"></button>
+
+
+
+
+</body>
+</html>

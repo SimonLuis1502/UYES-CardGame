@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UYES Rules</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="icon" href="/images/logo.png" type="image.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- index.js selects the correct page script -->
+    <script src="/scripts/index.js" type="module" defer></script>
+</head>
+<body id="rules-page-body" class="help-page-body">
+<!-- Main rules content -->
+<div class="help-rules-container">
+    <h2>UYES! Rulebook</h2>
+    <p>
+        UYES! is an UNO inspired card game. When creating a lobby the host can
+        choose the number of players, how many cards everyone starts with and
+        which special cards are included.
+    </p>
+
+    <h3>Setup</h3>
+    <ul>
+        <li>Each player receives the selected amount of starting cards (7 by default).</li>
+        <li>The remaining cards become the draw pile. Reveal the top card to start the discard pile.</li>
+    </ul>
+
+    <h3>Taking a Turn</h3>
+    <ul>
+        <li>Play a card that matches the color or number of the top discard.</li>
+        <li>If you have no playable card, draw one. You may play it immediately if it fits; otherwise your turn ends.</li>
+        <li>Whenever you have exactly one card left you must press the “UYES!” button before the turn ends. Forgetting or pressing it too early makes you draw a penalty card.</li>
+    </ul>
+
+    <h3>Card Types</h3>
+    <ul>
+        <li><strong>Number cards</strong>: 1–9 in red, yellow, green and blue.
+            <span class="card small blue"><span><span>5</span></span></span>
+        </li>
+        <li><strong>Draw Two</strong> (+2):
+            <span class="card small red"><span><span>2+</span></span></span>
+            the next player draws two cards and is skipped. Stacking draw cards is allowed.
+            So stacked cards add their draw value and the last player who doesn't stack has
+            to draw the cumulated amount of cards and is skipped.
+        </li>
+        <li><strong>Skip</strong>:
+            <span class="card small yellow"><span><span><i class="fas fa-ban specialCard"></i></span></span></span>
+            the next player loses their turn.
+        </li>
+        <li><strong>Reverse</strong>:
+            <span class="card small green"><span><span><i class="fas fa-retweet specialCard"></i></span></span></span>
+            changes the playing direction. With two players it works like Skip.
+        </li>
+        <li><strong>Wild</strong>:
+            <span class="card small wild"><span><span>W</span></span></span>
+            choose the color that continues play.
+        </li>
+        <li><strong>Wild Draw Four</strong> (+4):
+            <span class="card small wild"><span><span>4+</span></span></span>
+            choose a color, the next player draws four cards and is skipped.
+        </li>
+    </ul>
+
+    <h3>Running out of Cards</h3>
+    <ul>
+        <li>If the draw pile runs out, shuffle the discard pile to form a new one.</li>
+        <li>The first player who discards all their cards wins the round.</li>
+    </ul>
+</div>
+<div id="header">
+    <section>
+        <h1 id="gameTitle">UYES!</h1>
+        <p id="credits">by Andrii, Bilal, Daria , Simon, Srisharanya</p>
+    </section>
+</div>
+<button class="button backButtonTop" id="backBtnRules">BACK</button>
+</body>
+</html>

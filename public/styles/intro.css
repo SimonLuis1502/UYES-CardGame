@@ -1,0 +1,175 @@
+@import url("introStartSite.css");
+@import url("introCreateGame.css");
+@import url("introChooseLobby.css");
+
+
+/*Generelles Css für Intro*/
+/*erst auziehen des Milchglas um seite unscharf zu machen*/
+body:has(dialog[open]) {
+    #milch-glas-layer {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px); /* erzeugt den "Milchglas"-Effekt */
+        z-index: 100;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/*Default-Zustand des Glas-Layers (unsichtbar, keine Fläche)*/
+/* and tranistion for fade out effect after intro finished*/
+#milch-glas-layer {
+    transition: opacity 1s ease, visibility 1s ease;
+    position: fixed;
+    /*z-index: 0;*/
+    /*width: 0;*/
+    /*height: 0;*/
+}
+
+
+/*Eichbergdialog feld*/
+#eichberg {
+    z-index: 101; /* muss über milch-glas-layer liegen */
+    aspect-ratio: 1/1; /* saubere quadratische Form */
+
+
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    background-image: url("../images/UnoEichberg.png");
+    background-size: contain;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Stil der Dialogblasen */
+.speech-bubble {
+    -webkit-filter: blur(0); /* redundant */
+    filter: blur(0); /* redundant */
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1000;
+    aspect-ratio: 3.5/2;
+    background: var(--primary-yellow) ;
+    border: 4px solid black;
+    padding: 1em;
+    margin: 0 auto;
+    border-radius: 1em;
+}
+
+/* Schatten/Border der sprechblasenspitze links an der Sprechblase (schwarz) */
+.speech-bubble:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: 100%;
+    top: 13cqh;
+    border: 1.8em solid;
+    border-color: black transparent transparent black;
+    transform: rotate(180deg);
+}
+
+/* inneres der sprechblasenspitze */
+.speech-bubble:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: 100%;
+    top: 13.8cqh;
+    border: 1.5em solid;
+    border-color: var(--primary-yellow)  transparent transparent var(--primary-yellow) ;
+    transform: rotate(180deg);
+}
+
+
+
+
+/* Positionierung des Buttons auf dem dialogfeld */
+button.introduction, .button.introduction {
+    all: unset;
+    text-align: center;
+    align-content: center;
+    background: var(--secondary-yellow);
+    aspect-ratio: 5/2.5;
+    border-radius: 1em;
+    border: 0.25em solid black;
+    box-shadow: none;
+    padding: 0;
+    font-weight: 800;
+    font-size: 2.5cqw;
+    margin: initial;
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.2);
+    }
+
+    &:active {
+        transform: scale(0.8);
+    }
+
+    &#NO {
+        left: 45%; /* gilt nur für Button mit id="NO" */
+    }
+
+}
+
+
+/* Text in der Sprechblase */
+.speech {
+    margin: 0;
+    font-size: 3cqw; /* responsive */
+}
+
+
+/* Intro-Steuerung: zeigt immer nur ein Dialogfeld gleichzeitig */
+
+.intro:has(.speech-bubble[open]) ~ .intro {
+    display: none;
+}
+
+
+
+/*if no speech bubble dialog open anymore close intro mode*/
+body:not(:has(.speech-bubble[open])) #milch-glas-layer {
+    /*display: none;*/
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* evtl später besser in js lösbar -> vorallem buttons zur visualisierung in höhere z index layers mit JS! */
+
+/* Intro 1 FadeIn Animation */
+#intro1 {
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    
+    body:has(dialog[open]) {
+    #milch-glas-layer {
+        display: none;
+    }
+}
+    
+    dialog{
+        display:none;
+    }
+    #eichberg2{
+        display:none;
+    }
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lobby</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="icon" href="/images/logo.png" type="image.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=refresh" />
+
+    <!-- index.js selects the correct page script -->
+    <script type="module" src="/scripts/index.js" defer></script>
+
+</head>
+<body id="lobbyHost">
+<!-- Page header -->
+<div id="header">
+    <section>
+        <h1 id="gameTitle">UYES!</h1>
+        <p id="credits">by Andrii, Bilal, Daria , Simon, Srisharanya</p>
+    </section>
+</div>
+
+<!-- Help/exit dialog -->
+<div id="helpButtonClicked">
+    <button id="closeHelpBtn" >Help</button>
+    <button id="RulesBtn" >Rules</button>
+    <button id="ExitGameBtn">Exit Game</button>
+    <button id="AboutBtn" >Settings</button>
+
+</div>
+
+<!-- Confirm leaving dialog -->
+<div id="submitLeaving" >
+    <h2>Are You Sure?</h2>
+    <div>
+        <button id="stopLeaving">No</button>
+        <button id="leave">Exit</button>
+    </div>
+
+</div>
+
+
+<button  id="helpBtnLobby" class="button backButtonTop" >HELP</button>
+
+
+
+<!-- Lobby layout -->
+<div id="main" class="lobby">
+    <div class="gameCode">
+        <h2 id="game-code"></h2>
+        <button id="refresh-code-button">Regenerate</button>
+    </div>
+    <div id="player-lobby-container">
+        <h2>Lobby</h2>
+
+    </div>
+</div>
+
+<!-- Start button -->
+<div id="menu">
+    <button id="startGameplay" class="notFull">Start Game</button>
+</div>
+
+
+</body>
+</html>

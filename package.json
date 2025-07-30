@@ -1,0 +1,48 @@
+{
+  "name": "projekt",
+  "version": "1.0.0",
+  "description": "UYES is a round-based web game that takes inspiration from the famous card game UNO!",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "build:css": "postcss public/styles/*.css -d dist/styles"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fortgeschrittene-Informatik-Portfolio/UYES-Frontend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Fortgeschrittene-Informatik-Portfolio/UYES-Frontend/issues"
+  },
+  "homepage": "https://github.com/Fortgeschrittene-Informatik-Portfolio/UYES-Frontend#readme",
+  "dependencies": {
+    "compression": "^1.8.0",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.1.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.0",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.31.0",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^8.57.1",
+    "nodemon": "^3.1.10",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "postcss-nested": "^7.0.2",
+    "prettier": "^3.6.2"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ]
+}

@@ -1,0 +1,111 @@
+body.help-page-body {
+  overflow: auto;
+  display: grid;
+  grid-template-columns: 25vw 50vw 25vw;
+  grid-template-rows: 25vh 50vh 25vh;
+  margin: 0;
+  gap: 0;
+  background-image: url('../images/redGradientBackground.png');
+}
+
+.help-rules-container {
+  background-color: var(--primary-yellow);
+  grid-column: 1 / -1;
+  grid-row: 2;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  font-family: Arial, sans-serif;
+  color: #333;
+  align-self: center;
+  justify-self: center;
+  padding: 0;
+  overflow-y: auto;
+  scrollbar-color: var(--primary-yellow) var(--primary-blue);
+}
+
+.help-collapsible-section {
+  padding-left: 10%;
+  margin: 10% 0 10% 0;
+  summary {
+    font-size: 200%;
+  }
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  list-style: none;
+}
+
+.help-section-content ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  padding-left: 0;
+}
+
+.help-section-content ul li {
+  margin-bottom: 10px;
+}
+
+.help-section-content ul ul {
+  list-style-type: circle;
+  margin-left: 15%;
+  margin-top: 5%;
+}
+
+.help-section-content strong {
+  font-weight: bold;
+  color: #000;
+}
+
+#help-volume {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+#help-volume .help-amount {
+  margin: 0;
+  font-size: 1.1em;
+  color: #555;
+}
+
+#help-volume button {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#help-volume button:hover {
+  background-color: var(--secondary-yellow);
+}
+
+.help-go-back-button {
+  aspect-ratio: 2.9/1;
+  width: 55%;
+  background-color: var(--primary-yellow);
+  border: solid 0.5cqh white;
+  border-radius: 15%;
+  font-weight: 800;
+  font-size: 2.5vw;
+  font-size: 2.5cqw;
+}
+
+@media only screen and (max-width: 600px) {
+  .help-rules-container {
+    max-width: 90%;
+  }
+  #rulesBtnHelp {
+    width: 40%;
+  }
+  #backBtnHelp {
+    position: relative;
+    grid-column: 1 / -1;
+    grid-row: 3;
+    justify-self: center;
+    align-self: center;
+  }
+}
