@@ -174,13 +174,12 @@ a.error{
         width: 80vw;
         aspect-ratio: 2.6/1;
     }
-    .backButtonTop, .backButtonTop:active{
+    .backButtonTop, .backButtonTop:active {
         left: 50%;
-        top: 25%;
-        transform: translateX(-50%);
+        top: 20%;
+        transform: translateX(-50%) translateY(0.25em);
         width: 30vw;
     }
-
 }
 
 
