@@ -258,11 +258,11 @@ div#menu-createGame {
   #continue-createGame {
     width: 50%;
   }
-  #createBackBtn {
-    position: absolute;
-    top: 18%;
-    justify-self: center;
-  }
+  /*#createBackBtn {*/
+  /*  position: absolute;*/
+  /*  top: 18%;*/
+  /*  justify-self: center;*/
+  /*}*/
   #mainWrapper{
     transform: translateY(10%);
   }
