@@ -713,29 +713,6 @@ body#gameplay {
             }
         }
     }
-    /*#helpButtonClicked{*/
-
-    /*    &.helpOpen{*/
-    /*        #closeHelpBtn{*/
-    /*            & ~ *{*/
-    /*                width: 35%;*/
-    /*                flex-grow: 0;*/
-    /*            }*/
-    /*        }*/
-    /*        !*#closeHelpBtn{*!*/
-    /*        !*    position: absolute;*!*/
-    /*        !*    top: 16%;*!*/
-    /*        !*    left: 50%;*!*/
-    /*        !*    transform: translateX(-50%);*!*/
-    /*        !*    width: 30vw;*!*/
-    /*        !*    & + * {*!*/
-    /*        !*            margin-top: 20%;*!*/
-    /*        !*    }*!*/
-    /*        !*}*!*/
-
-
-    /*    }*/
-    /*}*/
 
     #timer{
         font-size: 300%;

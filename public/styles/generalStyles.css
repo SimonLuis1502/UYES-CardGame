@@ -181,6 +181,23 @@ a.error{
         transform: translateX(-50%) translateY(0.25em);
         width: 30vw;
     }
+    #helpButtonClicked {
+
+
+        &.helpOpen {
+            justify-content: flex-end;
+            gap: 10%;
+
+
+            * {
+                width: 35%;
+            }
+
+            #ExitGameBtn {
+                font-size: 2em;
+            }
+        }
+    }
 }
 
 
