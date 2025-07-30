@@ -1,8 +1,23 @@
+#around-UYES{
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    grid-row: 3;
+    grid-column: 1/-1;
+    position: relative;
+}
+
 #UYES {
+
+
     position: absolute;
-    bottom: 25%;
+
+
     left: 50%;
+    bottom:105%;
+
     transform: translateX(-50%);
+
     aspect-ratio: 2.5/1;
     width: 10%;
     pointer-events: none;
@@ -709,7 +724,9 @@ body#gameplay {
 
 
 @media only screen and (max-width: 600px) {
-
+    body{
+        overflow-y: scroll;
+    }
 
     #timer{
         font-size: 300%;
