@@ -113,8 +113,8 @@ body:has(.speech-bubble[open]) #eichberg2 {
 
 #helpButtonClicked {
     display: none;
-}
-    &.helpOpen{
+
+    &.helpOpen {
         display: flex;
         flex-direction: column;
         position: absolute;
@@ -126,23 +126,24 @@ body:has(.speech-bubble[open]) #eichberg2 {
         justify-content: space-evenly;
         align-items: center;
 
-        *{
+        * {
             width: 25%;
             flex-grow: 0;
         }
-        /*#closeHelpBtn{*/
-        /*    background-color: var(--secondary-yellow);*/
-        /*    position: absolute;*/
-        /*    !*width: 10%;*!*/
-        /*    !*top: 0;*!*/
-        /*    !*left: 0;*!*/
-        /*}*/
-        #ExitGameBtn{
+
+        #ExitGameBtn {
             font-size: 2em;
         }
     }
+}
 
-
+#closeHelpBtn{
+    background-color: var(--secondary-yellow);
+    position: absolute;
+    /*width: 10%;*/
+    /*top: 0;*/
+    /*left: 0;*/
+}
 
 a.error{
     color: #009cff;
