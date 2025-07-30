@@ -182,7 +182,7 @@
         transform: translateY(15%);
     }
     #menu{
-        margin-bottom: 10%;
+        margin-bottom: 0;
     }
 
     #player-lobby-container {
