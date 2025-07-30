@@ -178,8 +178,8 @@
 }
 
 @media only screen and (max-width: 600px) {
-    #main, #menu{
-        transform: translateY(15%)
+    div.lobby#main, div.lobby#menu{
+        transform: translateY(35%)
     }
     #player-lobby-container {
         width: 90%;
@@ -203,6 +203,6 @@
     #helpBtnLobby{
         position: absolute;
         left: 50%;
-        transform: translateX(-50%) translateY(50%);
+        transform: translateX(-50%) translateY(150%);
     }
 }
