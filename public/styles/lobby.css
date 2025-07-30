@@ -178,8 +178,8 @@
 }
 
 @media only screen and (max-width: 600px) {
-    #main#menu{
-        transform: translateY(10%)
+    #main, #menu{
+        transform: translateY(15%)
     }
     #player-lobby-container {
         width: 90%;
