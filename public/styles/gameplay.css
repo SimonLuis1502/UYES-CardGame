@@ -3,8 +3,6 @@
     top: 65%;
     left: 50%;
     transform: translateX(-50%);
-
-
     aspect-ratio: 2.5/1;
     width: 10%;
     pointer-events: none;
@@ -41,10 +39,10 @@
 }
 
 #yourTurn {
+    position: relative;
     grid-row: 3;
     grid-column: 3;
 
-    /*position:absolute;*/
     text-align: center;
     font-size: 2cqw;
     font-weight: 900;
@@ -52,14 +50,15 @@
     -webkit-text-stroke: 0.07cqw white;
     text-shadow: -0.18cqw 0.2cqw black;
 
-    top: 72%;
-    left: 65%;
+
 
     div {
-        align-content: center;
-        justify-self: center;
+
+        position: absolute;
+        top: 50%;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translateX(-50%) translateY(-50%);
+
         aspect-ratio: 1/1;
         width: 30%;
         border: 0.25cqw solid white;
@@ -99,11 +98,9 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    gap:25%;
 
     .pile {
-
-        margin: 0 10% 0 10%;
-
 
         h2 {
             text-align: center;
@@ -118,6 +115,8 @@
 }
 
 #player-avatars1{
+    pointer-events: none;
+    
     z-index: -1;
     position: absolute;
     width: 100%;
@@ -127,7 +126,7 @@
     justify-content: center;
 
     #player-avatars2 {
-        width: 80vw;
+        width: 95vw;
         height: 50vh;
 
 
@@ -138,7 +137,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        pointer-events: none;
+
 
         .row {
             display: flex;
@@ -258,16 +257,26 @@
     background-size: contain;
 }
 
+#around-own-avatar{
+    position: relative;
+    grid-row: 3;
+    grid-column: 1;
+}
+
 #own-avatar {
 
     border: 0.2cqw solid white;
     border-radius: 10%;
     aspect-ratio: 1/1;
-    width: 10%;
-    position: fixed;
+    width: 35%;
     background-size: contain;
-    top: 78%;
-    left: 8%;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%);
+
+
 
     /* show card count to the left */
     .cardHands {
@@ -510,9 +519,10 @@ body#gameplay {
     height: 100%;
     z-index: -1;
     justify-content: center;
+    align-items: center;
 
     * {
-        margin-top: 22cqh;
+        transform: translateY(-100%);
     }
 
 }
@@ -695,33 +705,12 @@ body#gameplay {
 
 
 @media only screen and (max-width: 600px) {
-    #piles{
-        flex-wrap: nowrap;
 
-        .pile{
-
-            h2{
-                font-size: 200%;
-            }
-
-            &:first-child{
-                margin: 0 15% 0 0;
-
-            }
-            &+ .pile{
-                margin: 0 0 0 15%;
-            }
-        }
-    }
 
     #timer{
         font-size: 300%;
     }
-    #gameDirection{
-        *{
-            margin-top: 30cqh
-        }
-    }
+
     .avatar{
         width: 15%;
     }
@@ -730,6 +719,13 @@ body#gameplay {
         transform: translateY(-50%) translateX(-50%);
         width: 25%;
         font-size: 100%;
+    }
+
+    #yourTurn{
+            padding-top: 75%;
+    }
+    #own-avatar{
+        transform: translateX(-20%) translateY(-50%);
     }
 }
 

@@ -186,7 +186,7 @@ a.error{
 
         &.helpOpen {
             justify-content: flex-end;
-            gap: 10%;
+            gap: 5%;
 
 
             #closeHelpBtn ~ * {
