@@ -55,5 +55,7 @@ body#chooseLobby {
     grid-row: 3;
     justify-self: center;
     align-self: center;
+    left: 0;
+    transform: none;
   }
 }

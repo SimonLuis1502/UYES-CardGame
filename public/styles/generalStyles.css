@@ -177,8 +177,8 @@ a.error{
     .backButtonTop {
         left: 50%;
         transform: translateX(-50%);
-        width: 25vw;
-        height: 8vh
+        width: 30vw;
+        height: 3vh
     }
 
 }
