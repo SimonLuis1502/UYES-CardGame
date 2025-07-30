@@ -178,8 +178,8 @@
 }
 
 @media only screen and (max-width: 600px) {
-    div.lobby#main, div.lobby#menu{
-        transform: translateY(35%)
+    div.lobby#main{
+        transform: translateY(35%);
     }
     #player-lobby-container {
         width: 90%;
@@ -192,6 +192,7 @@
         font-size: 120%;
     }
     #startGameplay {
+        transform: translateY(35%);
         width: 50%;
         font-size: 120%;
     }
@@ -203,6 +204,6 @@
     #helpBtnLobby{
         position: absolute;
         left: 50%;
-        transform: translateX(-50%) translateY(150%);
+        transform: translateX(-50%) translateY(500%);
     }
 }
