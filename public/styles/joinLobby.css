@@ -76,12 +76,13 @@ main {
 
 @media only screen and (max-width: 600px) {
   #gameCodeInput {
-    width: 80vw;
+    width: 70vw;
     font-size: 1em;
   }
   #NameInput.Join {
-    height: 25%;
-    font-size: 200%;
+    height: 20vh;
+    font-size: 100%;
+    width: 50vw;
     &::placeholder {
       font-size: 100%;
     }

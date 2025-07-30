@@ -263,4 +263,8 @@ div#menu-createGame {
     top: 18%;
     justify-self: center;
   }
+  #mainWrapper{
+    transform: translateY(10%);
+  }
+
 }
