@@ -133,9 +133,9 @@ body:has(.speech-bubble[open]) #eichberg2 {
         #closeHelpBtn{
             background-color: var(--secondary-yellow);
             position: absolute;
-            width: 10%;
-            top: 0;
-            left: 0;
+            /*width: 10%;*/
+            /*top: 0;*/
+            /*left: 0;*/
         }
         #ExitGameBtn{
             font-size: 2em;

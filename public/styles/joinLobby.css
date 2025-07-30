@@ -98,7 +98,6 @@ main {
   #gameCodeInput {
     height: 28%;
     font-size: 200%;
-    border: 1vw;
     border: 1cqw solid black;
 
     &::placeholder {
