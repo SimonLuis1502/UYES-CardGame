@@ -109,6 +109,8 @@
 }
 
 #piles {
+
+    z-index: -1;
     grid-row: 2;
     grid-column: 1/-1;
     display: flex;
