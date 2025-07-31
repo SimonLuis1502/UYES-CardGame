@@ -117,6 +117,16 @@ export async function initGameplay() {
         }
         e.dataTransfer.setData('text/plain', 'draw');
     });
+    // Touch support for drawing cards
+    drawPile?.addEventListener('touchend', (e) => {
+        if (!myTurn) return;
+        const touch = e.changedTouches[0];
+        if (!touch) return;
+        const target = document.elementFromPoint(touch.clientX, touch.clientY);
+        if (handContainer && handContainer.contains(target)) {
+            socket.emit('draw-card', gameCode);
+        }
+    }, { passive: true });
 
     const handContainer = document.getElementById('player-hand-container');
     // Dropping the draw pile on the hand triggers a draw
@@ -146,7 +156,9 @@ export async function initGameplay() {
             try {
                 const card = JSON.parse(data);
                 playCard(card);
-            } catch { }
+            } catch {
+                /* ignore invalid data */
+            }
         }
     });
 
@@ -253,6 +265,16 @@ function renderHand(cards) {
             span.addEventListener('click', () => {
                 playCard({ color: card.color, value: card.value });
             });
+            // Basic touch drag support
+            span.addEventListener('touchend', (e) => {
+                const discard = document.getElementById('discard-pile');
+                const touch = e.changedTouches[0];
+                if (!discard || !touch) return;
+                const target = document.elementFromPoint(touch.clientX, touch.clientY);
+                if (discard.contains(target) || discard === target) {
+                    playCard({ color: card.color, value: card.value });
+                }
+            }, { passive: true });
         } else {
             span.classList.add('unplayable');
         }
@@ -323,21 +345,6 @@ function startTurnTimer(startedAt = Date.now()) {
 }
 
 function setAvatarImages() {
-    const order = [2,0,1,3];
-    let idx = 0;
-    for (const n of playerList) {
-        if (n === playerId) continue;
-        const slotIndex = order[idx] ?? idx;
-        const el = document.getElementById(`player${slotIndex + 1}`);
-        if (el) {
-            el.dataset.playerId = n;
-            const file = playerAvatars[n];
-            if (file) {
-                el.style.backgroundImage = `url('/images/avatars/${file}')`;
-            }
-        }
-        idx++;
-    }
     const own = document.getElementById('own-avatar');
     if (own) {
         own.dataset.player = playerId;
@@ -351,6 +358,17 @@ function setAvatarImages() {
             bubble.className = 'uyes-bubble';
             bubble.textContent = 'UYES!';
             own.appendChild(bubble);
+        }
+    }
+
+    for (const id of Object.keys(playerOrientation)) {
+        if (id === playerId) continue;
+        const el = getAvatarElement(id);
+        if (el) {
+            const file = playerAvatars[id];
+            if (file) {
+                el.style.backgroundImage = `url('/images/avatars/${file}')`;
+            }
         }
     }
 }
