@@ -1,12 +1,12 @@
 #UYES {
     position: absolute;
     left: 50%;
+    top: 70%;
     transform: translateX(-50%);
-    bottom: 20%;
     z-index: 5;
     pointer-events: auto;
     aspect-ratio: 2.5/1;
-    width: 15%;
+    width: 50%;
     background-color: dimgrey;
     border: solid 0.5cqh darkgrey; /* ❗️cqh = container-height unit – bitte check Kompatibilität */
     border-radius: 15%;
