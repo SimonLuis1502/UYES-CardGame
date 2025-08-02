@@ -3,7 +3,7 @@
  * player joins without specifying one. Lobbies are identified by a
  * nine digit game code.
  */
-const MAX_NAME_LENGTH = "Draw Master Flash".length;
+export const MAX_NAME_LENGTH = 20;
 const funnyNames = [
     "U-Norris", "Taylor Swift", "UNO DiCaprio", "Cardi Bitch",
     "Elon Shuffle", "Snoop Draw Two", "Oprah Skipfrey", "Keanu Draw-Reeves",
@@ -25,7 +25,6 @@ function getRandomName() {
     return funnyNames[Math.floor(Math.random() * funnyNames.length)];
 }
 
-export const MAX_NAME_LENGTH = 20;
 
 /**
  * Generate a random nine digit lobby code.
