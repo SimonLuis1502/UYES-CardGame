@@ -107,8 +107,8 @@
 }
 
 #piles {
-
-    z-index: 0;
+    position: relative;
+    z-index: 10;
     grid-row: 2;
     grid-column: 1/-1;
     display: flex;
@@ -118,7 +118,8 @@
     gap:25%;
 
     .pile {
-        z-index: 5;
+        position: relative;
+        z-index: 10;
         h2 {
             text-align: center;
             font-size: 2cqw;
@@ -337,6 +338,10 @@ body#gameplay {
     border: solid 0.5cqh white;
 }
 
+body.my-turn {
+    pointer-events: auto;
+}
+
 body#gameplay {
 
     #winner {
@@ -435,6 +440,8 @@ body#gameplay {
 }
 
 #draw-pile {
+    position: relative;
+    z-index: 10;
     pointer-events: none;
     cursor: not-allowed;
 }
