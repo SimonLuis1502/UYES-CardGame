@@ -752,6 +752,7 @@ body#gameplay {
         /*top: 75%;*/
         /*transform: translateY(-50%) translateX(-50%);*/
         font-size: 100%;
+        width: 65%;
     }
 
     #yourTurn{
