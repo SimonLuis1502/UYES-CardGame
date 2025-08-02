@@ -107,7 +107,7 @@
 }
 
 .player-lobby-fields{
-    /*position: relative;*/
+    position: relative;
     width: 100%;
     /*height: 10%;*/
     flex-grow: 1;
@@ -139,16 +139,15 @@
                 justify-self: flex-end;
                 text-overflow: ellipsis;
 
-                transform: translateX(600%);
-
-                z-index: 5;
+                position: absolute;
+                right: 1cqw;
                 top: 0.1cqw;
                 font-size: 1cqw;
+                z-index: 5;
 
                 &:active{
-                    transform: translateX(600%) scale(1.2);
+                    transform: scale(1.2);
                     /*transform: initial;*/
-
                 }
 
 

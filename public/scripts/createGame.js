@@ -2,6 +2,8 @@
 import { handleIntro } from './utils/intros.js';
 import { setupAmountControls, setupSelectAllCheckbox } from './utils/uiHelpers.js';
 
+const MAX_NAME_LENGTH = 17;
+
 /** Initialise form controls for the create game page. */
 export function initCreateGame() {
 
@@ -24,8 +26,15 @@ export function initCreateGame() {
     document.getElementById("continue-createGame")?.addEventListener("click", async (e) => {
         e.preventDefault();
 
+        const name = document.getElementById("NameInput").value.trim() || "";
+
+        if (name.length > MAX_NAME_LENGTH) {
+            alert("❌ Name too long");
+            return;
+        }
+
         const data = {
-            name: document.getElementById("NameInput").value || "",
+            name,
             settings: {
                 players: document.getElementById("playerSlider").value,
                 cards: document.getElementById("cardSlider").value,
@@ -39,7 +48,6 @@ export function initCreateGame() {
         };
 
         sessionStorage.setItem("gameData", JSON.stringify(data));
-
 
         const response = await fetch("/api/createGame", {
             method: "POST",

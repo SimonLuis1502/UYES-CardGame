@@ -3,26 +3,29 @@
  * player joins without specifying one. Lobbies are identified by a
  * nine digit game code.
  */
+const MAX_NAME_LENGTH = "Draw Master Flash".length;
 const funnyNames = [
     "U-Norris", "Taylor Swift", "UNO DiCaprio", "Cardi Bitch",
     "Elon Shuffle", "Snoop Draw Two", "Oprah Skipfrey", "Keanu Draw-Reeves",
-    "Barack Ob-Draw-ma", "Harry Skipper", "Justin Blieber", "Reverse Kardashian",
+    "Barack Ob-Draw-ma", "Harry Skipper", "Justin Blieber", "Reverse Ninja",
     "The Rock’n’Draw", "Skipney Spears", "UNOwen Wilson", "Kim Kardashian",
     "Lady Gaga", "Ed Sheeran", "Will Smith", "UNO Clarkson",
     "Shufflon Musk", "UNOzilla", "UNOferatu", "Beyoncé Drawoncé",
-    "The Weeknd Reversed", "UNOkeem Phoenix", "Kardashian West", "UNOthanos",
+    "Weekend Skip", "UNOkeem Phoenix", "Kardashian West", "UNOthanos",
     "UNOmar Khaled", "UNOna Lisa", "Lil Draw-X", "Vin Unocard",
-    "UNO Maccaroni", "UNOndo der Vergelter", "UNO'Neill Shaq", "UNO McGregor",
-    "UNO Bieber Fever", "UNO-Tokio Drift", "UNOlectro Deluxe", "UNOzilla vs Cardzilla",
-    "UNO Reloaded", "UNOmander Reversal", "Draw-cula", "Skip Dogg",
+    "UNO Maccaroni", "Uno Avenger", "UNO'Neill Shaq", "UNO McGregor",
+    "UNO Bieber Fever", "UNO-Tokio Drift", "UNOlectro Deluxe", "Cardzilla Jr.",
+    "UNO Reloaded", "Uno Commander", "Draw-cula", "Skip Dogg",
     "UNO-Kenobi", "Card-i B", "UNO-Licious", "Skip Skywalker",
     "Card Solo", "Uno-Wan Kenobi", "Draw-nado", "Skip-a-licious",
     "UNO-Mite", "Cardzilla", "The Shuffle King", "Draw Master Flash",
     "UNO-Pocalypse", "Skip-N-Go", "Reverse Ripley"
-]
+].filter((name) => name.length <= MAX_NAME_LENGTH);
 function getRandomName() {
     return funnyNames[Math.floor(Math.random() * funnyNames.length)];
 }
+
+export const MAX_NAME_LENGTH = 20;
 
 /**
  * Generate a random nine digit lobby code.
@@ -43,7 +46,11 @@ export function generatePlayerId() {
  */
 export function createLobby({ name, settings }) {
     const gameId = generateGameCode();
-    const playerName = name?.trim() || getRandomName();
+    const trimmedName = name?.trim();
+    if (trimmedName && trimmedName.length > MAX_NAME_LENGTH) {
+        throw new Error("Name too long");
+    }
+    const playerName = trimmedName || getRandomName();
 
     const playerId = Math.random().toString(36).slice(2, 10);
 
