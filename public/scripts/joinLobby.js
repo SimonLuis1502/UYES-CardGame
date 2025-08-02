@@ -1,4 +1,6 @@
 // Join lobby form functionality
+const MAX_NAME_LENGTH = 17;
+
 export function initJoinLobby() {
 
     document.getElementById("joinBackBtn")?.addEventListener("click", () => {
@@ -17,6 +19,11 @@ export function initJoinLobby() {
 
         if (!/^\d{9}$/.test(code)) {
             alert("❌ Please enter a valid 9-digit game code");
+            return;
+        }
+
+        if (name.length > MAX_NAME_LENGTH) {
+            alert("❌ Name too long");
             return;
         }
 
