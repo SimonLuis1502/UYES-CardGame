@@ -27,6 +27,7 @@
 }
 
 #player-hand-container {
+    position: relative;
     z-index: 5;
     grid-row: 3;
     grid-column: 2;
@@ -40,7 +41,17 @@
     overflow-x: auto;
     overflow-y: clip;
     gap: 0;
+    height: fit-content;
+    pointer-events: none;
 
+}
+
+#player-hand-container > span.card {
+    pointer-events: auto;
+}
+
+#player-hand-container > span.card.unplayable {
+    pointer-events: none;
 }
 
 /* prevent left overflow of the first card in hand */
