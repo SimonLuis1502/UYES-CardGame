@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { createLobby, generatePlayerId } from './logic/lobbyHandling.js';
+import { createLobby, generatePlayerId, MAX_NAME_LENGTH } from './logic/lobbyHandling.js';
 import { getLobbyMeta } from './logic/socketHandler.js';
 import { setSession } from './jwtSession.js';
 
@@ -84,22 +84,33 @@ router.post('/api/updateSettings', (req, res) => {
 
 // Create a new lobby and store session data
 router.post("/api/createGame", (req, res) => {
-    const lobby = createLobby(req.body);
+    try {
+        const lobby = createLobby(req.body);
 
-    req.session.gameId = lobby.gameId;
-    req.session.playerName = lobby.playerName;
-    req.session.playerId = lobby.playerId;
-    req.session.role = "host";
-    req.session.settings = lobby.settings;
-    setSession(res, req.session);
+        req.session.gameId = lobby.gameId;
+        req.session.playerName = lobby.playerName;
+        req.session.playerId = lobby.playerId;
+        req.session.role = "host";
+        req.session.settings = lobby.settings;
+        setSession(res, req.session);
 
-    res.redirect("/lobby");
+        res.redirect("/lobby");
+    } catch (err) {
+        if (err.message === "Name too long") {
+            return res.status(400).json({ error: "Name too long" });
+        }
+        return res.status(500).json({ error: "Failed to create lobby" });
+    }
 });
 
 // Join an existing lobby by game code
 router.post("/api/joinGame", (req, res) => {
     const code = String(req.body.code || "").trim();
     const name = (req.body.playerName || "").trim();
+
+    if (name.length > MAX_NAME_LENGTH) {
+        return res.status(400).json({ error: "Name too long" });
+    }
 
     if (!/^[0-9]{9}$/.test(code)) {
         return res.status(400).json({ error: "Invalid game code" });
@@ -115,7 +126,7 @@ router.post("/api/joinGame", (req, res) => {
 
     req.session.gameId = code;
     setSession(res, req.session);
-    req.session.playerName = name?.trim() !== "" ? name : getRandomName();
+    req.session.playerName = name !== "" ? name : getRandomName();
     req.session.playerId = generatePlayerId();
     req.session.role = "joiner";
     setSession(res, req.session);
