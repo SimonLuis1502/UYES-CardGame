@@ -1,5 +1,4 @@
 #around-UYES{
-    z-index: 1;
     height: 100%;
     width: 100%;
     grid-row: 3;
@@ -8,11 +7,9 @@
 }
 
 #UYES {
-
+    z-index: 5;
 
     position: absolute;
-
-    z-index: 5;
 
     left: 50%;
     bottom:105%;
@@ -30,6 +27,7 @@
 }
 
 #player-hand-container {
+    z-index: 5;
     grid-row: 3;
     grid-column: 2;
     width: 100%;
@@ -110,7 +108,7 @@
 
 #piles {
 
-    z-index: 1;
+    z-index: 0;
     grid-row: 2;
     grid-column: 1/-1;
     display: flex;
@@ -120,7 +118,7 @@
     gap:25%;
 
     .pile {
-
+        z-index: 5;
         h2 {
             text-align: center;
             font-size: 2cqw;
@@ -138,7 +136,6 @@
     grid-column: 1/-1;
     pointer-events: none;
 
-    z-index: -1;
     position: relative;
 
 
@@ -245,7 +242,7 @@
     border-radius: 25% 25% 25% 0;
     pointer-events: none;
     display: none;
-    z-index: 1;
+    z-index: 4;
 }
 
 .uyes-bubble.active {
@@ -754,5 +751,71 @@ body#gameplay {
     #own-avatar{
         transform: translateX(-20%) translateY(-50%);
     }
+
+    @keyframes toDiscard{
+        0%{opacity: 100%;}
+        60%{
+            opacity: 100%;
+        }
+        100%{
+            opacity: 0;
+            top: 44%;
+            left: 62%;;
+        }
+    }
+
+    @keyframes toLeftDown{
+        0%{opacity: 100%;}
+        60%{
+            opacity: 100%;
+        }
+        100%{
+            opacity: 0;
+            transform: translateY(100%) translateX(-150%);
+        }
+    }
+
+    @keyframes toLeftTop{
+        0%{opacity: 100%;}
+        60%{
+            opacity: 100%;
+        }
+        100%{
+            opacity: 0;
+            transform: translateY(-125%) translateX(-150%);
+        }
+    }
+    @keyframes toRightDown{
+        0%{opacity: 100%;}
+        60%{
+            opacity: 100%;
+        }
+        100%{
+            opacity: 0;
+            transform: translateY(100%) translateX(700%);
+        }
+    }
+    @keyframes toRightTop{
+        0%{opacity: 100%;}
+        60%{
+            opacity: 100%;
+        }
+        100%{
+            opacity: 0;
+            transform: translateY(-125%) translateX(700%);
+        }
+    }
+
+    @keyframes toSelf{
+        0%{opacity: 100%;}
+        60%{
+            opacity: 100%;
+        }
+        100%{
+            opacity: 0;
+            transform: translateY(200%) translateX(300%);
+        }
+    }
+
 }
 
