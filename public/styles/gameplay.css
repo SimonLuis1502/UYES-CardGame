@@ -331,7 +331,8 @@ body#gameplay {
 }
 
 .my-turn #UYES {
-    pointer-events: initial;
+    pointer-events: auto;
+    z-index: 10;
     background-color: var(--primary-yellow);
     border: solid 0.5cqh white;
 }
