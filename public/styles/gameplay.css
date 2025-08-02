@@ -14,6 +14,10 @@
     font-size: 2cqw;
 }
 
+#UYES:active {
+    transform: translateX(-50%) translateY(0.25em);
+}
+
 #player-hand-container {
     position: relative;
     z-index: 5;
