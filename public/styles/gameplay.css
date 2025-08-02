@@ -42,7 +42,7 @@
     overflow-y: clip;
     gap: 0;
     height: fit-content;
-    pointer-events: none;
+    pointer-events: auto;
 
 }
 
