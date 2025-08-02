@@ -2,19 +2,22 @@
     height: 100%;
     width: 100%;
     grid-row: 3;
-    grid-column: 1/-1;
+    grid-column: 2;
     position: relative;
+    z-index: 4;
+    pointer-events: none;
 }
 
 #UYES {
-    z-index: 5;
+    z-index: 10;
 
     position: absolute;
 
     left: 50%;
-    bottom:105%;
+    bottom:110%;
 
     transform: translateX(-50%);
+    pointer-events: auto;
 
     aspect-ratio: 2.5/1;
     width: 10%;
