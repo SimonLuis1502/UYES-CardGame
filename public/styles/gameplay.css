@@ -18,7 +18,6 @@
 
     aspect-ratio: 2.5/1;
     width: 10%;
-    pointer-events: none;
     background-color: dimgrey;
     border: solid 0.5cqh darkgrey; /* ❗️cqh = container-height unit – bitte check Kompatibilität */
     border-radius: 15%;
@@ -343,7 +342,6 @@ body#gameplay {
 }
 
 .my-turn #UYES {
-    pointer-events: auto;
     z-index: 10;
     background-color: var(--primary-yellow);
     border: solid 0.5cqh white;
