@@ -24,6 +24,8 @@ function getRandomName() {
     return funnyNames[Math.floor(Math.random() * funnyNames.length)];
 }
 
+export const MAX_NAME_LENGTH = 20;
+
 /**
  * Generate a random nine digit lobby code.
  * @returns {string} numeric string used to join a lobby
@@ -43,7 +45,11 @@ export function generatePlayerId() {
  */
 export function createLobby({ name, settings }) {
     const gameId = generateGameCode();
-    const playerName = name?.trim() || getRandomName();
+    const trimmedName = name?.trim();
+    if (trimmedName && trimmedName.length > MAX_NAME_LENGTH) {
+        throw new Error("Name too long");
+    }
+    const playerName = trimmedName || getRandomName();
 
     const playerId = Math.random().toString(36).slice(2, 10);
 
