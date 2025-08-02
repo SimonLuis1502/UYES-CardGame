@@ -119,6 +119,8 @@
     p{
 
         margin: 0;
+        width: 100%;
+        text-align: center;
         &.openSlot{
             color: dimgrey;
             +.removePlayerButton{
