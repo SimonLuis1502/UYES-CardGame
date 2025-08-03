@@ -141,7 +141,6 @@
 
                 position: absolute;
                 right: 1cqw;
-                top: 0.1cqw;
                 font-size: 1cqw;
                 z-index: 5;
 
@@ -178,6 +177,18 @@
 }
 
 @media only screen and (max-width: 600px) {
+
+
+    .player-lobby-fields {
+        & p {
+            &.takenSlot {
+                +.removePlayerButton{
+        width: 25%;
+        font-size: 100%;
+                }
+            }
+        }
+    }
     div.lobby#main{
         transform: translateY(15%);
     }
